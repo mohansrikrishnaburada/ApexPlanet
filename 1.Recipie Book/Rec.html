@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Recipe Book</title>
+    <link rel="icon" type="image/x-icon" href="Images\favicon.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rec.css">
+</head>
+<body>
+    <header>
+        <h1>My Favorite Recipe Book</h1>
+        <p>Welcome to my collection of delicious recipes! Explore four of my favorite dishes below, complete with ingredients, instructions, and images.</p>
+        <button onclick="showMessage()">Get Cooking!</button>
+    </header>
+
+    <main>
+        <div class="recipe">
+            <h2>Classic Spaghetti Carbonara</h2>
+            <div class="gallery">
+                <img src="Images/1.Spaghetti Carbonara/Classic_Spaghetti_Carbonara-1.jpeg" alt="Spaghetti Carbonara">
+                <img src="Images/1.Spaghetti Carbonara/Classic_Spaghetti_Carbonara-2.jpeg" alt="Spaghetti Carbonara">
+                <img src="Images/1.Spaghetti Carbonara/Classic_Spaghetti_Carbonara-3.jpeg" alt="Spaghetti Carbonara">
+            </div>
+            <div class="recipe-details hidden">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>200g spaghetti</li>
+                    <li>100g pancetta</li>
+                    <li>2 large eggs</li>
+                    <li>50g Parmesan cheese</li>
+                    <li>Black pepper</li>
+                    <li>Salt</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Boil spaghetti in salted water until al dente.</li>
+                    <li>Fry pancetta until crispy.</li>
+                    <li>Whisk eggs and Parmesan in a bowl.</li>
+                    <li>Combine hot pasta with pancetta, then mix in egg mixture off heat.</li>
+                    <li>Season with black pepper and serve immediately.</li>
+                </ol>
+            </div>
+            <button class="toggle-btn" onclick="toggleRecipe(this)">Show Details</button>
+        </div>
+
+        <div class="recipe">
+            <h2>Homemade Margherita Pizza</h2>
+            <div class="gallery">
+                <img src="Images/2.Margherita Pizza/Homemade Margherita Pizza-1.jpeg" alt="Margherita Pizza">
+                <img src="Images/2.Margherita Pizza/Homemade Margherita Pizza-2.jpeg" alt="Margherita Pizza">
+                <img src="Images/2.Margherita Pizza/Homemade Margherita Pizza-3.jpeg" alt="Margherita Pizza">
+            </div>
+            <div class="recipe-details hidden">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 pizza dough ball</li>
+                    <li>200g mozzarella cheese</li>
+                    <li>100g tomato sauce</li>
+                    <li>Fresh basil leaves</li>
+                    <li>Olive oil</li>
+                    <li>Salt</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Preheat oven to 250°C (480°F).</li>
+                    <li>Roll out dough and spread tomato sauce.</li>
+                    <li>Add mozzarella and basil leaves.</li>
+                    <li>Drizzle with olive oil and bake for 10-12 minutes.</li>
+                    <li>Slice and serve hot.</li>
+                </ol>
+            </div>
+            <button class="toggle-btn" onclick="toggleRecipe(this)">Show Details</button>
+        </div>
+
+        <div class="recipe">
+            <h2>Chocolate Chip Cookies</h2>
+            <div class="gallery">
+                <img src="Images/3.Chocolate Chip Cookies/Chocolate Chip Cookies-1.jpeg" alt="Chocolate Chip Cookies">
+                <img src="Images/3.Chocolate Chip Cookies/Chocolate Chip Cookies-2.jpeg" alt="Chocolate Chip Cookies">
+                <img src="Images/3.Chocolate Chip Cookies/Chocolate Chip Cookies-3.jpg" alt="Chocolate Chip Cookies">
+            </div>
+            <div class="recipe-details hidden">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>200g flour</li>
+                    <li>100g butter</li>
+                    <li>150g sugar</li>
+                    <li>1 egg</li>
+                    <li>100g chocolate chips</li>
+                    <li>1 tsp vanilla extract</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Preheat oven to 180°C (350°F).</li>
+                    <li>Cream butter and sugar, then add egg and vanilla.</li>
+                    <li>Mix in flour and chocolate chips.</li>
+                    <li>Scoop dough onto a baking sheet.</li>
+                    <li>Bake for 10-12 minutes until golden.</li>
+                </ol>
+            </div>
+            <button class="toggle-btn" onclick="toggleRecipe(this)">Show Details</button>
+        </div>
+
+        <div class="recipe">
+            <h2>Grilled Lemon Herb Chicken</h2>
+            <div class="gallery">
+                <img src="Images/4.Grilled Lemon Herb Chicken/Grilled Lemon Herb Chicken-1.jpeg" alt="Grilled Lemon Herb Chicken">
+                <img src="Images/4.Grilled Lemon Herb Chicken/Grilled Lemon Herb Chicken-2.jpeg" alt="Grilled Lemon Herb Chicken">
+                <img src="Images/4.Grilled Lemon Herb Chicken/Grilled Lemon Herb Chicken-3.jpeg" alt="Grilled Lemon Herb Chicken">
+            </div>
+            <div class="recipe-details hidden">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>4 chicken breasts</li>
+                    <li>2 lemons (juice and zest)</li>
+                    <li>2 tbsp olive oil</li>
+                    <li>2 cloves garlic</li>
+                    <li>1 tbsp fresh rosemary</li>
+                    <li>Salt and pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Marinate chicken with lemon juice, zest, oil, garlic, rosemary, salt, and pepper for 30 minutes.</li>
+                    <li>Preheat grill to medium-high heat.</li>
+                    <li>Grill chicken for 6-8 minutes per side.</li>
+                    <li>Check internal temperature reaches 165°F (75°C).</li>
+                    <li>Serve with lemon wedges.</li>
+                </ol>
+            </div>
+            <button class="toggle-btn" onclick="toggleRecipe(this)">Show Details</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Learn more recipes at <a href="https://www.bbcgoodfood.com" target="_blank">BBC Good Food</a>.</p>
+    </footer>
+
+    <script src="Rec.js"></script>
+</body>
+</html>
