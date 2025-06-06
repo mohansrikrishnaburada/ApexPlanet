@@ -1,4 +1,4 @@
-# Recipe Book (Task 1)
+# Recipe Book
 
 ## Overview
 This project is a simple web-based recipe book showcasing four favorite recipes: Classic Spaghetti Carbonara, Homemade Margherita Pizza, Chocolate Chip Cookies, and Grilled Lemon Herb Chicken. Each recipe includes a gallery of images, ingredients, and cooking instructions. The webpage is styled with CSS for a clean and responsive design and includes JavaScript for interactive toggling of recipe details.
