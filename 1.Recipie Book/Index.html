@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Contact & Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="theme-toggle" role="button" aria-label="Toggle theme" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+        <nav aria-label="Main navigation">
+            <a href="#contact" class="nav-link active" aria-label="Navigate to Contact Form">Contact</a>
+            <a href="#tasks" class="nav-link" aria-label="Navigate to Task Manager">Tasks</a>
+        </nav>
+        <main>
+            <section class="contact-section" id="contact">
+                <h2>Contact Us</h2>
+                <form id="contactForm" aria-label="Contact Form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required aria-required="true" aria-describedby="nameError">
+                        <span class="error" id="nameError" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required aria-required="true" aria-describedby="emailError">
+                        <span class="error" id="emailError" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required aria-required="true" aria-describedby="messageError"></textarea>
+                        <span class="error" id="messageError" role="alert"></span>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </section>
+            <section class="task-section" id="tasks">
+                <h2>Task Manager</h2>
+                <div class="task-input">
+                    <input type="text" id="taskInput" placeholder="New task..." aria-label="New task input">
+                    <select id="taskCategory" aria-label="Task category">
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Urgent">Urgent</option>
+                    </select>
+                    <input type="date" id="taskDueDate" aria-label="Task due date">
+                    <button onclick="addTask()" class="btn">Add Task</button>
+                </div>
+                <div class="task-filters">
+                    <button class="filter-btn active" onclick="filterTasks('all')">All</button>
+                    <button class="filter-btn" onclick="filterTasks('Work')">Work</button>
+                    <button class="filter-btn" onclick="filterTasks('Personal')">Personal</button>
+                    <button class="filter-btn" onclick="filterTasks('Urgent')">Urgent</button>
+                </div>
+                <div id="taskList" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
