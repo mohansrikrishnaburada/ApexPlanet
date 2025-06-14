@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Interactive Quiz Challenge</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center p-4">
+  <div class="container max-w-2xl w-full mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-8 animate__animated animate__bounceIn">Pro Quiz Challenge 🚀</h1>
+    
+    <div id="quiz-container" class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 animate__animated animate__fadeInUp">
+      <div class="progress-bar bg-gray-200 rounded-full h-4 mb-6 overflow-hidden">
+        <div id="progress" class="bg-gradient-to-r from-green-400 to-blue-500 h-full rounded-full transition-all duration-500"></div>
+      </div>
+      <div id="score" class="text-2xl font-bold text-gray-800 mb-4">Score: 0</div>
+      <div id="question" class="question text-xl md:text-2xl font-semibold text-gray-900 mb-6"></div>
+      <div id="options" class="options flex flex-col gap-4"></div>
+      <div id="result" class="result mt-6 text-lg font-medium"></div>
+      <button id="next-btn" class="next-btn hidden mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Next Question</button>
+    </div>
+    
+    <div id="joke-container" class="joke-container mt-8 text-white text-lg italic bg-black bg-opacity-50 p-6 rounded-2xl shadow-lg">Fetching a joke...</div>
+    
+    <div id="celebration" class="celebration hidden mt-8 p-8 bg-white rounded-3xl shadow-2xl animate__animated animate__zoomIn">
+      <h2 class="text-3xl font-bold text-red-500 mb-4">You’re a Quiz Master! 🎉</h2>
+      <p class="text-gray-700 text-lg mb-4">Here’s a joke to celebrate your brilliance:</p>
+      <div id="celebration-joke" class="text-gray-800 text-lg italic"></div>
+    </div>
+  </div>
+  <canvas id="confetti-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
