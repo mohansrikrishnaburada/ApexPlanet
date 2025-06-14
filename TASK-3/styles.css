@@ -1,0 +1,114 @@
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+#quiz-container {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#quiz-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.options button {
+  background: linear-gradient(90deg, #ff6f61, #de4d4d);
+  transition: all 0.3s ease;
+}
+
+.options button:hover {
+  background: linear-gradient(90deg, #de4d4d, #ff6f61);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.options button:active {
+  transform: translateY(1px);
+}
+
+.next-btn {
+  background: linear-gradient(90deg, #1e90ff, #00b7eb);
+}
+
+.next-btn:hover {
+  background: linear-gradient(90deg, #00b7eb, #1e90ff);
+}
+
+.joke-container {
+  transition: transform 0.3s ease;
+}
+
+.joke-container:hover {
+  transform: scale(1.02);
+}
+
+.celebration {
+  position: relative;
+  z-index: 10;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  #quiz-container {
+    padding: 2rem;
+  }
+
+  .question {
+    font-size: 1.25rem;
+  }
+
+  .options button {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  #result {
+    font-size: 1rem;
+  }
+
+  .joke-container {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #quiz-container {
+    padding: 1.5rem;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+
+  .options button {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+
+  #result {
+    font-size: 0.875rem;
+  }
+
+  .joke-container {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+
+  .celebration h2 {
+    font-size: 1.5rem;
+  }
+
+  #celebration-joke {
+    font-size: 1rem;
+  }
+}
