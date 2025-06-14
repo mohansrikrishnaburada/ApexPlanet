@@ -45,7 +45,3 @@ The quiz requires an internet connection to load external libraries and fetch th
 The celebration triggers if you score 3 or more out of 4 questions correctly.
 The project is optimized for modern browsers and responsive across devices.
 
-Author
-Created by Grok, built by xAI, on June 14, 2025.
-License
-This project is for educational purposes and can be freely used or modified.
