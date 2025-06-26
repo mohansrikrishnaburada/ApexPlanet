@@ -1,0 +1,855 @@
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%; /* Base font size for rem units */
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1a202c;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 1rem; /* Scales with device */
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3 {
+    font-weight: 700;
+    color: #2d3748;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    margin-bottom: 1rem;
+    color: #2d3748;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    margin-bottom: 0.8rem;
+}
+
+p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.navbar {
+    background-color: #2d3748;
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar.scrolled {
+    background-color: #1a202c;
+    padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.logo {
+    color: #edf2f7;
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.8rem);
+}
+
+.nav-links li a {
+    color: #edf2f7;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.6rem 1.2rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #ecc94b;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -8px;
+    left: 50%;
+    background-color: #ecc94b;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links li a:hover::after, .nav-links li a.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    color: #edf2f7;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.hamburger:hover {
+    color: #ecc94b;
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+main {
+    margin-top: clamp(80px, 15vh, 120px);
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 5rem);
+    min-height: calc(100vh - clamp(150px, 25vh, 180px));
+}
+
+.section {
+    max-width: clamp(800px, 90vw, 1300px);
+    margin: 0 auto clamp(2rem, 4vw, 3rem) auto; /* Bottom margin for spacing between sections */
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(60px);
+    animation: fadeInUp 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.section h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* ==========================================================================
+   About Me Section
+   ========================================================================== */
+.about-me-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 2rem);
+    flex-wrap: nowrap; /* Enforce horizontal layout */
+    animation: slideInLeft 0.6s ease-out; /* Apply internship animation */
+}
+
+.profile-image {
+    width: clamp(150px, 20vw, 200px);
+    height: clamp(150px, 20vw, 200px);
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    order: -1; 
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-me-container p {
+    flex: 1;
+    min-width: clamp(200px, 50vw, 300px);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(180deg);
+    }
+}
+
+@keyframes flipBack {
+    0% {
+        transform: perspective(1000px) rotateY(180deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact-section {
+    text-align: left;
+}
+
+.contact-container {
+    display: flex;
+    gap: clamp(2rem, 4vw, 4rem);
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+.info-item .icon {
+    margin-right: clamp(0.8rem, 1.5vw, 1.2rem);
+    color: #ecc94b;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    animation: pulse 2s infinite;
+}
+
+.info-item .icon img {
+    width: clamp(16px, 3vw, 20px);
+    height: clamp(16px, 3vw, 20px);
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+form {
+    flex: 2;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.name-email-group {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.input-pair {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #2d3748;
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-group label .required {
+    color: #e53e3e;
+    margin-left: 0.5rem;
+}
+
+.form-group label:hover {
+    color: #ecc94b;
+}
+
+input, textarea {
+    width: 100%;
+    padding: clamp(0.8rem, 1.5vw, 1rem);
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    transition: all 0.4s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #63b3ed;
+    outline: none;
+    box-shadow: 0 0 8px rgba(99, 179, 237, 0.5);
+    transform: translateY(-2px);
+}
+
+.send-btn {
+    display: inline-block;
+    padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    background: linear-gradient(90deg, #ecc94b 0%, #d69e2e 100%);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(236, 201, 75, 0.4);
+    touch-action: manipulation; /* Improve touch responsiveness */
+}
+
+.send-btn:hover {
+    background: linear-gradient(90deg, #d69e2e 0%, #ecc94b 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 7px 25px rgba(214, 158, 46, 0.6);
+}
+
+/* ==========================================================================
+   Skills Section
+   ========================================================================== */
+.skills-container {
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.skills-section {
+    margin-bottom: clamp(2rem, 4vw, 3rem); /* Ensure spacing between sections */
+}
+
+.skills-category {
+    margin-bottom: 0;
+}
+
+.skills-category h2 {
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    text-align: left;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.skills-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.skills-list li {
+    background-color: #edf2f7;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 10px;
+    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #2d3748;
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    min-width: clamp(140px, 20vw, 160px);
+    max-width: clamp(160px, 25vw, 180px);
+    height: clamp(180px, 25vw, 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+}
+
+.skills-list li:hover {
+    background-color: #63b3ed;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(99, 179, 237, 0.3);
+}
+
+.skill-logo {
+    width: clamp(50px, 8vw, 60px);
+    height: clamp(50px, 8vw, 60px);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+    object-fit: contain;
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Internships, Projects, and Education
+   ========================================================================== */
+.internship, .project, .education-item {
+    background-color: #edf2f7;
+    padding: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.internship:hover, .project:hover, .education-item:hover {
+    background-color: #e2e8f0;
+    transform: translateX(15px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.internship-list {
+    list-style-position: inside;
+    padding-left: clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(0.5rem, 1vw, 0.8rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #4a5568;
+}
+
+.internship-list li {
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+    transition: all 0.4s ease;
+}
+
+.internship-list li:hover {
+    color: #2d3748;
+    transform: translateX(10px);
+}
+
+.education-item h3 {
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    margin-bottom: 0.5rem;
+}
+
+.education-item p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+/* New Project Section and Card Styles */
+.projects-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    border-radius: 15px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.projects-section-title {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    color: #2d3748;
+    text-align: left;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: clamp(1.5rem, 3vw, 2rem);
+    justify-content: flex-start;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.projects-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.project-card {
+    perspective: 1000px;
+    width: clamp(250px, 30vw, 300px);
+    height: clamp(300px, 40vw, 350px);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.project-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card.flipped .project-card-inner {
+    transform: rotate3d(1, -1, 0, 180deg); /* Diagonal flip from bottom-left to top-right */
+    width: clamp(300px, 35vw, 350px); /* Expand width when flipped */
+    height: clamp(350px, 45vw, 400px); /* Expand height when flipped */
+}
+
+.project-card-front, .project-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.project-card-front {
+    background-size: cover;
+    background-position: center;
+    background-color: #edf2f7;
+}
+
+.project-card-back {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    color: #2d3748;
+    transform: rotate3d(1, -1, 0, 180deg); /* Match diagonal flip for back face */
+    overflow-y: auto;
+    padding: clamp(2rem, 3.5vw, 2.5rem); /* Increased padding for better content visibility */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to top */
+    align-items: flex-start; /* Align content to left */
+}
+
+.project-card-back h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.project-card-back p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #4a5568;
+}
+
+.project-description-list {
+    list-style-position: inside;
+    padding-left: clamp(0.5rem, 1vw, 1rem); /* Reduced left padding for more space */
+    margin-top: clamp(0.5rem, 1vw, 0.8rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem); /* Added bottom margin for spacing */
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem); /* Slightly smaller font for better fit */
+    color: #4a5568;
+    width: 100%; /* Ensure list takes full width */
+}
+
+.project-description-list li {
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+    transition: all 0.4s ease;
+}
+
+.project-description-list li:hover {
+    color: #2d3748;
+    transform: translateX(10px);
+}
+
+.project-title {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    color: #2d3748;
+    text-align: center;
+    margin-top: clamp(0.8rem, 1.5vw, 1rem);
+    font-weight: 700;
+}
+
+/* Add this new style at the end of the project-related styles, before the @media queries */
+.card-hint {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    padding: clamp(0.5rem, 1vw, 0.8rem);
+    border-radius: 8px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.project-card:hover .card-hint {
+    opacity: 1;
+}
+
+/* Responsive adjustments for project cards */
+@media (max-width: 768px) {
+    .project-card {
+        width: clamp(200px, 45vw, 250px);
+        height: clamp(250px, 35vw, 300px);
+    }
+
+    .project-card.flipped .project-card-inner {
+        width: clamp(250px, 50vw, 300px);
+        height: clamp(300px, 40vw, 350px);
+    }
+
+    .project-card-back h3 {
+        font-size: clamp(1rem, 2vw, 1.1rem);
+    }
+
+    .project-card-back p {
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+
+    .project-description-list {
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+
+    .project-title {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .projects-section-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        width: clamp(180px, 80vw, 220px);
+        height: clamp(220px, 50vw, 260px);
+    }
+
+    .project-card.flipped .project-card-inner {
+        width: clamp(220px, 85vw, 260px);
+        height: clamp(260px, 55vw, 300px);
+    }
+
+    .projects-section {
+        padding: clamp(1rem, 2vw, 1.5rem);
+    }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    background-color: #2d3748;
+    color: #edf2f7;
+    text-align: center;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid #4a5568;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-info, form {
+        flex: none;
+        width: 100%;
+    }
+
+    .name-email-group {
+        flex-direction: column;
+    }
+
+    .input-pair {
+        width: 100%;
+        margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .section {
+        padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .about-me-container {
+        flex-direction: column;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        align-items: center;
+    }
+
+    .profile-image {
+        margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: clamp(0.8rem, 1.5vw, 1.2rem) clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .nav-links {
+        gap: clamp(0.8rem, 1.5vw, 1.2rem);
+    }
+
+    .logo {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    main {
+        padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: clamp(60px, 12vh, 70px);
+        left: 0;
+        right: 0;
+        background-color: #1a202c;
+        padding: clamp(1rem, 2vw, 1.5rem);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: slideInLeft 0.5s ease-out;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .section h1 {
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+    }
+
+    .skills-list {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .contact-container, .info-item {
+        margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.6rem, 1.2vw, 1rem);
+    }
+
+    .logo {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+    }
+
+    .nav-links li a {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.6rem, 1.2vw, 0.8rem);
+    }
+
+    .section {
+        padding: clamp(1.5rem, 3vw, 2rem) clamp(0.8rem, 1.5vw, 1rem);
+    }
+
+    .form-group label {
+        font-size: clamp(0.8rem, 1.8vw, 1rem);
+    }
+
+    .send-btn {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .skills-list {
+        gap: clamp(0.8rem, 1.5vw, 1rem);
+    }
+
+    .skills-list li {
+        min-width: clamp(120px, 18vw, 140px);
+        height: clamp(160px, 22vw, 180px);
+    }
+
+    .skill-logo {
+        width: clamp(40px, 7vw, 50px);
+        height: clamp(40px, 7vw, 50px);
+    }
+
+    .profile-image {
+        width: clamp(120px, 18vw, 150px);
+        height: clamp(120px, 18vw, 150px);
+        border-radius: 8px; /* Adjusted for smaller screens */
+    }
+}
+
+/* Browser-specific prefixes for compatibility */
+@supports (-webkit-scroll-snap-type: x mandatory) or (scroll-snap-type: x mandatory) {
+    .skills-list {
+        scroll-snap-type: x mandatory;
+    }
+}
+
+@supports not (scroll-snap-type: x mandatory) {
+    .skills-list {
+        scroll-behavior: smooth;
+    }
+}
