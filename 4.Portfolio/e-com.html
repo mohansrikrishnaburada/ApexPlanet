@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="e-com.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">E-Commerce</div>
+      <input type="text" class="search-bar" placeholder="Search products..." aria-label="Search products">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#categories" class="nav-link">Categories</a></li>
+        <li><a href="#cart" class="nav-link cart-link">My Cart <span class="cart-counter">0</span></a></li>
+        <li><a href="#profile" class="nav-link">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>Discover Amazing Products</h1>
+      <p>Shop the latest trends with unbeatable prices</p>
+      <a href="#categories" class="btn">Explore Now</a>
+    </section>
+
+    <section class="categories" id="categories">
+      <h2>Browse Categories</h2>
+      <div class="category-grid">
+        <a href="#" class="category-item" aria-label="Fashion Category">
+          <img src="Fashion.jpg" alt="Fashion (Clothes/Shoes)">
+          <h3>Fashion (Clothes/Shoes)</h3>
+        </a>
+        <a href="#" class="category-item" aria-label="Electronics Category">
+          <img src="Electronics.jpeg" alt="Electronics">
+          <h3>Electronics</h3>
+        </a>
+        <a href="#" class="category-item" aria-label="Mobiles Category">
+          <img src="Mobiles.jpeg" alt="Mobiles">
+          <h3>Mobiles</h3>
+        </a>
+      </div>
+    </section>
+
+    <section class="featured-products" id="products">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="Latches & Locks.jpg" alt="Latches and Locks">
+          <h3>Latches and Locks</h3>
+          <p>250 ₹</p>
+          <button class="btn add-to-cart" data-name="Latches and Locks" data-price="250">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="mobiles1.webp" alt="Mobiles">
+          <h3>Mobiles</h3>
+          <p>346 ₹</p>
+          <button class="btn add-to-cart" data-name="Bottles" data-price="346">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="Slippers.jpeg" alt="Slippers">
+          <h3>Slippers</h3>
+          <p>499 ₹</p>
+          <button class="btn add-to-cart" data-name="Slippers" data-price="499">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-modal">
+    <button class="close-btn">&times;</button>
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <div class="total">Total: ₹0</div>
+    <button class="btn" onclick="alert('Proceeding to checkout!')">Checkout</button>
+  </div>
+  <div class="overlay"></div>
+
+  <footer>
+    <p>© 2025 E-Commerce. All rights reserved.</p>
+  </footer>
+
+  <script src="e-com.js"></script>
+</body>
+</html>
